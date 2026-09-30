@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="image/favicon-48.png" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="image/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+  <title>About | Moyin's Dev</title>
+  <meta name="description" content="About Moyinoluwa Samuel Adekunle — Moyin's Dev.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { lime: "#d7ff63" },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #09090b;
+
+    }
+
+    .page-grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 54px 54px;
+    }
+
+    .about-photo {
+      position: relative;
+    }
+
+    /* .about-photo::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 14px;
+      width: 75px;
+      height: 75px;
+      border-left: 2px solid rgba(215,255,99,.6);
+      border-top: 2px solid rgba(215,255,99,.6);
+      border-radius: 18px 0 0 0;
+      z-index: -1;
+    }
+
+    .about-photo::after {
+      content: "";
+      position: absolute;
+      right: -14px;
+      bottom: -14px;
+      width: 90px;
+      height: 90px;
+      border-right: 2px solid rgba(215,255,99,.4);
+      border-bottom: 2px solid rgba(215,255,99,.4);
+      border-radius: 0 0 18px 0;
+      z-index: -1;
+    } */
+  </style>
+</head>
+
+<body class="min-h-screen overflow-x-hidden font-sans text-zinc-100 antialiased">
+  <div class="page-grid fixed inset-0 -z-20 opacity-30"></div>
+  <div class="fixed right-0 top-20 -z-10 h-96 w-96 rounded-full bg-lime/10 blur-3xl"></div>
+  <div id="mouse-glow"
+    class="pointer-events-none fixed left-0 top-0 z-0 h-72 w-72 rounded-full bg-lime-300/10 blur-3xl opacity-0"
+    aria-hidden="true"></div>
+  <!-- <div id="scroll-progress"></div> -->
+  <header data-site-header
+    class="site-header sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
+      <a href="index.html" class="brand-logo font-display text-lg font-bold tracking-tight">
+        Moyin's<span class="text-lime">Dev</span>
+      </a>
+      <div id="scroll-progress"
+        class="absolute bottom-0 left-0 h-[2px] w-0 bg-[#d7ff63] transition-[width] duration-100 ease-out"></div>
+
+      <nav class="nav-links hidden items-center gap-8 text-base font-semibold text-zinc-400 md:flex">
+        <a href="index.html" class="nav-link transition hover:text-lime">Home</a>
+        <!-- CHANGE to -->
+        <a href="about.html" class="nav-link is-active text-lime transition hover:text-lime">About</a>
+        <a href="resume.html" class="nav-link transition hover:text-lime">Resume</a>
+        <a href="services.html" class="nav-link transition hover:text-lime">Services</a>
+        <a href="portfolio.html" class="nav-link transition hover:text-lime">Portfolio</a>
+        <a href="contact.html" class="nav-link transition hover:text-lime">Contact</a>
+      </nav>
+
+      <div class="relative md:hidden">
+        <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
+          class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-zinc-300 transition hover:border-lime/40 hover:text-lime">
+          <span class="sr-only">Toggle navigation menu</span>
+          <span class="flex h-4 w-5 flex-col justify-between">
+            <span class="hamburger-line line-1 block h-[1.5px] w-full rounded-full bg-current"></span>
+            <span class="hamburger-line line-2 block h-[1.5px] rounded-full bg-current"></span>
+            <span class="hamburger-line line-3 block h-[1.5px] w-full rounded-full bg-current"></span>
+          </span>
+        </button>
+
+        <div id="mobile-menu" data-menu-panel
+          class="fixed inset-0 z-40 flex items-start justify-center bg-black/90 backdrop-blur-lg px-4 pt-24 pb-6 sm:items-center sm:pt-4">
+          <div
+            class="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-[#0d0d0f]/95 shadow-2xl shadow-black/60 backdrop-blur-2xl">
+
+            <div class="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-lime/10 blur-3xl">
+            </div>
+            <div class="pointer-events-none absolute right-8 top-[4.5rem] h-px w-16 bg-lime/60"></div>
+
+            <div class="relative flex items-center justify-between border-b border-white/10 px-6 py-5">
+              <span class="font-display text-lg font-bold tracking-tight">Moyin's<span
+                  class="text-lime">Dev</span></span>
+              <button type="button" data-menu-close aria-label="Close menu"
+                class="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-zinc-300 transition hover:border-lime/50 hover:text-lime">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <nav class="relative px-3 py-3">
+              <a href="index.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-lime">
+                Home
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="about.html"
+                class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-4 text-base font-semibold text-lime">
+                About
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="resume.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-lime">
+                Resume
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="services.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-lime">
+                Services
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="portfolio.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-lime">
+                Portfolio
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="contact.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-lime">
+                Contact
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </nav>
+
+            <div class="relative border-t border-white/10 px-6 py-5">
+              <a href="contact.html"
+                class="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-transparent px-5 py-3.5 text-sm font-bold uppercase tracking-[0.1em] text-white transition hover:border-lime/50 hover:text-lime">
+                Let's Talk
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
+      <div data-reveal class="mb-16 max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime">About Me</p>
+        <h1 class="font-display mt-4 text-5xl font-bold tracking-[-0.03em] sm:text-6xl">
+          Turning complex code into user-first solutions.
+        </h1>
+        <div
+          class="status-chip mt-6 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium uppercase tracking-[0.15em] text-zinc-300">
+          <span class="status-dot text-lime"></span>
+          Open to freelance &amp; collaborative work
+        </div>
+      </div>
+
+      <div class="grid items-center gap-16 lg:grid-cols-[.75fr_1.25fr]">
+        <div data-reveal class="about-photo mx-auto w-full max-w-sm">
+          <div class="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 shadow-2xl">
+            <img src="image/WhatsApp Image 2026-09-06 at 12.38.40 PM.jpeg" alt="Moyinoluwa Samuel Adekunle"
+              class="h-[520px] w-full object-cover object-top">
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="1">
+          <p class="text-lg leading-8 text-zinc-300">
+            I'm <span class="font-semibold text-white">Moyinoluwa Samuel Adekunle</span>, a Full Stack
+            Software Engineer and founder of <span class="font-semibold text-lime">Moyin's Dev</span>.
+            I’m passionate about turning ideas into thoughtful digital experiences that are purposeful, intuitive, and
+            built to last.
+          </p>
+
+          <p class="mt-6 text-base leading-7 text-zinc-500">
+            I approach development with a balance of creativity and problem-solving, focusing on clean, maintainable
+            work
+            and experiences that feel simple, responsive, and meaningful. I’m constantly learning, refining my craft,
+            and exploring new ways to turn ideas into useful digital products.
+          </p>
+
+          <div class="mt-10 border-t border-white/10 pt-8">
+            <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
+              Currently
+            </h2>
+
+            <div class="mt-5 space-y-1">
+              <div class="credential-row flex items-start gap-4 rounded-xl px-3 py-3">
+                <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime/10 text-lime">
+                  <i class="fa-solid fa-briefcase text-sm" aria-hidden="true"></i>
+                </span>
+                <span>
+                  <span class="block text-sm font-medium text-white">Founder, Moyin's Dev</span>
+                  <span class="block text-sm text-zinc-500">Building web, mobile, and backend products for clients and
+                    personal projects.</span>
+                </span>
+              </div>
+
+              <div class="credential-row flex items-start gap-4 rounded-xl px-3 py-3">
+                <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime/10 text-lime">
+                  <i class="fa-solid fa-graduation-cap text-sm" aria-hidden="true"></i>
+                </span>
+                <span>
+                  <span class="block text-sm font-medium text-white">BSc Computer Science — FUOYE</span>
+                  <span class="block text-sm text-zinc-500">Federal University Oye-Ekiti, 2024 – Present</span>
+                </span>
+              </div>
+
+              <div class="credential-row flex items-start gap-4 rounded-xl px-3 py-3">
+                <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime/10 text-lime">
+                  <i class="fa-solid fa-code text-sm" aria-hidden="true"></i>
+                </span>
+                <span>
+                  <span class="block text-sm font-medium text-white">Full Stack Web Development — Loctech</span>
+                  <span class="block text-sm text-zinc-500">Loctech IT Training Institute, 2026 – Present</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 border-t border-white/10 pt-8">
+            <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
+              Personal Information
+            </h2>
+
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-zinc-900/60 p-5 transition hover:border-lime/30">
+                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-lime/10 text-lime">
+                  <i class="fa-regular fa-envelope text-sm" aria-hidden="true"></i>
+                </span>
+                <p class="mt-3 text-xs uppercase tracking-widest text-zinc-600">Email</p>
+                <a href="mailto:adekunlesamuel299@gmail.com"
+                  class="mt-1 block break-all text-sm font-medium text-white hover:text-lime">
+                  adekunlesamuel299@gmail.com
+                </a>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-zinc-900/60 p-5 transition hover:border-lime/30">
+                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-lime/10 text-lime">
+                  <i class="fa-solid fa-phone text-sm" aria-hidden="true"></i>
+                </span>
+                <p class="mt-3 text-xs uppercase tracking-widest text-zinc-600">Phone</p>
+                <a href="tel:09012767896" class="mt-1 block text-sm font-medium text-white hover:text-lime">
+                  09012767896
+                </a>
+              </div>
+
+              <div
+                class="rounded-2xl border border-white/10 bg-zinc-900/60 p-5 sm:col-span-2 transition hover:border-lime/30">
+                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-lime/10 text-lime">
+                  <i class="fa-solid fa-location-dot text-sm" aria-hidden="true"></i>
+                </span>
+                <p class="mt-3 text-xs uppercase tracking-widest text-zinc-600">Location</p>
+                <p class="mt-1 text-sm font-medium text-white">Port Harcourt, Nigeria</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-zinc-900/50">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-3">
+          <div data-reveal class="value-card rounded-2xl p-2">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-lime/10 text-lime">
+              <i class="fa-solid fa-bullseye text-base" aria-hidden="true"></i>
+            </span>
+            <h2 class="font-display mt-4 text-xl font-bold">Build with purpose</h2>
+            <p class="mt-2 text-sm leading-6 text-zinc-500">
+              I aim for solutions that are useful first, with the technology supporting the goal.
+            </p>
+          </div>
+
+          <div data-reveal data-reveal-delay="1" class="value-card rounded-2xl p-2">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-lime/10 text-lime">
+              <i class="fa-solid fa-layer-group text-base" aria-hidden="true"></i>
+            </span>
+            <h2 class="font-display mt-4 text-xl font-bold">Keep it clean</h2>
+            <p class="mt-2 text-sm leading-6 text-zinc-500">
+              Clear layouts and maintainable code make products easier to use and improve.
+            </p>
+          </div>
+
+          <div data-reveal data-reveal-delay="2" class="value-card rounded-2xl p-2">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-lime/10 text-lime">
+              <i class="fa-solid fa-arrow-trend-up text-base" aria-hidden="true"></i>
+            </span>
+            <h2 class="font-display mt-4 text-xl font-bold">Keep learning</h2>
+            <p class="mt-2 text-sm leading-6 text-zinc-500">
+              I continue developing my skills as tools, platforms, and best practices evolve.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 py-20 text-center lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime">Next Step</p>
+      <h2 class="font-display mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+        Want to see what I can build?
+      </h2>
+      <a href="portfolio.html"
+        class="btn-shine group mt-7 inline-flex items-center gap-2 rounded-lg bg-lime/90 px-6 py-3.5 text-sm font-bold text-zinc-950 shadow-lg shadow-lime/0 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-lime hover:shadow-lime/40 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime/60 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950">
+        View My Work
+      </a>
+    </section>
+  </main>
+  <footer class="site-footer border-t border-white/10 bg-zinc-950">
+    <div class="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+      <div data-reveal class="grid gap-12 text-center lg:grid-cols-[1.4fr_0.7fr_0.9fr] lg:text-left">
+        <div class="mx-auto max-w-xl lg:mx-0">
+          <a href="index.html" class="inline-flex items-center gap-3">
+            <span
+              class="font-display flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-sm font-bold text-lime">MD</span>
+            <span class="font-display text-lg font-semibold tracking-tight">Moyin's Dev</span>
+          </a>
+          <p class="mt-5 text-sm leading-7 text-zinc-400">
+            Moyinoluwa Samuel Adekunle (Moyin's Dev) — Full Stack Software Engineer & Founder of Moyin's Devs.
+            Crafting digital experiences with code, creativity, and purpose across web, mobile, desktop, and backend
+            platforms.
+          </p>
+          <a href="contact.html"
+            class="footer-cta mt-7 inline-flex items-center rounded-xl border border-lime px-5 py-3 text-sm font-semibold text-lime hover:bg-lime hover:text-zinc-950">
+            Start the Project <span class="ml-3" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Explore</p>
+          <nav class="mt-5 space-y-3 text-sm">
+            <a href="index.html" class="footer-link block text-zinc-400 hover:text-white">Home</a>
+            <a href="about.html" class="footer-link block text-white">About</a>
+            <a href="resume.html" class="footer-link block text-zinc-400 hover:text-white">Resume</a>
+            <a href="services.html" class="footer-link block text-zinc-400 hover:text-white">Services</a>
+            <a href="portfolio.html" class="footer-link block text-zinc-400 hover:text-white">Portfolio</a>
+            <a href="contact.html" class="footer-link block text-zinc-400 hover:text-white">Contact</a>
+          </nav>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Contact</p>
+          <div class="mt-5 space-y-3 text-sm">
+            <a href="mailto:adekunlesamuel299@gmail.com"
+              class="footer-link block break-all text-zinc-400 hover:text-white">adekunlesamuel299@gmail.com</a>
+            <a href="tel:+2349012767896" class="footer-link block text-zinc-400 hover:text-white">+234 901 276 7896</a>
+            <p class="text-zinc-400">Port Harcourt, Rivers State, Nigeria</p>
+            <p class="pt-2 leading-6 text-zinc-500">Available for freelance projects and long-term collaborations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal class="mt-12 border-t border-white/10 pt-8">
+        <div class="flex flex-wrap justify-center gap-3 lg:justify-start">
+          <a href="#" aria-label="GitHub"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-github text-base" aria-hidden="true"></i><span>GitHub</span>
+          </a>
+          <a href="#" aria-label="LinkedIn"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-linkedin-in text-base" aria-hidden="true"></i><span>LinkedIn</span>
+          </a>
+          <a href="#" aria-label="Instagram"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-instagram text-base" aria-hidden="true"></i><span>Instagram</span>
+          </a>
+          <a href="#" aria-label="X"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-x-twitter text-base" aria-hidden="true"></i><span>X</span>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mt-9 flex flex-col gap-2 border-t border-white/10 pt-6 text-center text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:text-left">
+        <p>Design and built by Moyinoluwa Samuel Adekunle (Moyin's Dev).</p>
+        <p>© 2026 Moyin's Dev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/site.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="image/favicon-48.png" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="image/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+  <title>Contact | Moyin's Dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: "#d7ff63" },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+
+<body class="min-h-screen bg-zinc-950 font-sans text-zinc-100 antialiased">
+  <div class="pointer-events-none fixed inset-0 -z-10 opacity-40"
+    style="background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;">
+  </div>
+  <div id="mouse-glow"
+    class="pointer-events-none fixed left-0 top-0 z-0 h-72 w-72 rounded-full bg-lime-300/10 blur-3xl opacity-0"
+    aria-hidden="true"></div>
+  <!-- <div id="scroll-progress"></div> -->
+  <header data-site-header
+    class="site-header sticky top-0 z-50 border-b border-white/10 bg-zinc-950/95 backdrop-blur-md">
+    <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="index.html" class="brand-logo font-display text-lg font-semibold tracking-tight">Moyin's <span
+          class="text-accent">Dev</span></a>
+      <div id="scroll-progress"
+        class="absolute bottom-0 left-0 h-[2px] w-0 bg-[#d7ff63] transition-[width] duration-100 ease-out"></div>
+
+      <div class="nav-links hidden md:flex items-center gap-8 text-base font-semibold text-zinc-400">
+        <a href="index.html" class="nav-link hover:text-accent">Home</a>
+        <a href="about.html" class="nav-link hover:text-accent">About</a>
+        <a href="resume.html" class="nav-link hover:text-accent">Resume</a>
+        <a href="services.html" class="nav-link hover:text-accent">Services</a>
+        <a href="portfolio.html" class="nav-link hover:text-accent">Portfolio</a>
+        <a href="contact.html" class="nav-link is-active text-accent">Contact</a>
+      </div>
+      <div class="relative md:hidden">
+        <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
+          class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-zinc-300 transition hover:border-accent/40 hover:text-accent">
+          <span class="sr-only">Toggle navigation menu</span>
+          <span class="flex h-4 w-5 flex-col justify-between">
+            <span class="hamburger-line line-1 block h-[1.5px] w-full rounded-full bg-current"></span>
+            <span class="hamburger-line line-2 block h-[1.5px] rounded-full bg-current"></span>
+            <span class="hamburger-line line-3 block h-[1.5px] w-full rounded-full bg-current"></span>
+          </span>
+        </button>
+        <div id="mobile-menu" data-menu-panel
+          class="fixed inset-0 z-40 flex items-start justify-center bg-black/90 backdrop-blur-lg px-4 pt-24 pb-6 sm:items-center sm:pt-4">
+          <div
+            class="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-[#0d0d0f]/95 shadow-2xl shadow-black/60 backdrop-blur-2xl">
+
+            <div class="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/10 blur-3xl">
+            </div>
+            <div class="pointer-events-none absolute right-8 top-[4.5rem] h-px w-16 bg-accent/60"></div>
+
+            <div class="relative flex items-center justify-between border-b border-white/10 px-6 py-5">
+              <span class="font-display text-lg font-bold tracking-tight">Moyin's<span
+                  class="text-accent">Dev</span></span>
+              <button type="button" data-menu-close aria-label="Close menu"
+                class="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-zinc-300 transition hover:border-accent/50 hover:text-accent">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <nav class="relative px-3 py-3">
+              <a href="index.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                Home
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="about.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                About
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="resume.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                Resume
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="services.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                Services
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="portfolio.html"
+                class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                Portfolio
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="contact.html"
+                class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-4 text-base font-semibold text-accent">
+                Contact
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </nav>
+
+            <div class="relative border-t border-white/10 px-6 py-5">
+              <a href="contact.html"
+                class="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-transparent px-5 py-3.5 text-sm font-bold uppercase tracking-[0.1em] text-white transition hover:border-accent/50 hover:text-accent">
+                Let's Talk
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-7xl px-6 pb-12 pt-20 lg:px-8">
+      <div data-reveal>
+        <p class="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-accent">Contact</p>
+        <h1 class="font-display max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">Let's talk
+          about your next project.</h1>
+        <p class="mt-5 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
+          Have an idea, a project in progress, or a problem that needs a digital solution?
+          Send an inquiry and let's discuss how I can help.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span
+            class="trust-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-zinc-300">
+            <i class="fa-regular fa-clock text-accent" aria-hidden="true"></i> Replies within 24–48 hrs
+          </span>
+          <span
+            class="trust-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-zinc-300">
+            <i class="fa-solid fa-file-invoice-dollar text-accent" aria-hidden="true"></i> Clear scope &amp; pricing
+          </span>
+          <span
+            class="trust-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-zinc-300">
+            <i class="fa-solid fa-handshake text-accent" aria-hidden="true"></i> Ongoing support available
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+
+        <aside data-reveal
+          class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-7 shadow-2xl shadow-black/20 sm:p-9">
+          <div class="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/10 blur-3xl"></div>
+          <div class="relative">
+            <p class="text-sm font-medium text-zinc-300">Get in touch</p>
+            <h2 class="font-display mt-3 text-2xl font-semibold tracking-tight">Start a conversation.</h2>
+            <p class="mt-4 text-sm leading-6 text-zinc-400">
+              Whether you need a website, application, backend system, or AI-powered solution,
+              you can reach me directly or use the inquiry form.
+            </p>
+
+            <div class="mt-9 space-y-4">
+              <a href="mailto:adekunlesamuel299@gmail.com"
+                class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:border-accent/40 hover:bg-white/[0.055]">
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                  <i class="fa-regular fa-envelope text-lg" aria-hidden="true"></i>
+                </span>
+                <span class="min-w-0">
+                  <span class="block text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">Email</span>
+                  <span
+                    class="mt-1 block break-all text-sm text-zinc-200 group-hover:text-white">adekunlesamuel299@gmail.com</span>
+                </span>
+              </a>
+
+              <a href="tel:+2349012767896"
+                class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:border-accent/40 hover:bg-white/[0.055]">
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                  <i class="fa-solid fa-phone text-lg" aria-hidden="true"></i>
+                </span>
+                <span>
+                  <span class="block text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">Phone</span>
+                  <span class="mt-1 block text-sm text-zinc-200 group-hover:text-white">09012767896</span>
+                </span>
+              </a>
+
+              <div
+                class="flex min-h-32 items-center gap-5 rounded-2xl border border-white/10 bg-black/20 p-5 sm:min-h-36">
+                <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                  <i class="fa-solid fa-location-dot text-xl" aria-hidden="true"></i>
+                </span>
+                <span>
+                  <span class="block text-sm font-semibold uppercase tracking-[0.14em] text-zinc-500">Location</span>
+                  <span class="mt-2 block text-base font-medium leading-6 text-zinc-100 sm:text-lg">Port Harcourt,
+                    Rivers State, Nigeria</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <div data-reveal data-reveal-delay="1"
+          class="relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.075] p-7 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-9">
+          <div class="absolute right-8 top-8 h-px w-20 bg-accent/70"></div>
+          <div class="mb-8">
+            <p class="text-sm font-medium text-accent">Project inquiry</p>
+            <h2 class="font-display mt-2 text-2xl font-semibold tracking-tight">Tell me what you're building.</h2>
+          </div>
+
+          <form action="#" method="POST" class="space-y-6">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="name" class="mb-2 block text-sm font-medium text-zinc-200">Your name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required placeholder="Enter your name"
+                  class="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-zinc-600 focus:border-accent/70 focus:ring-2 focus:ring-accent/10">
+              </div>
+              <div>
+                <label for="email" class="mb-2 block text-sm font-medium text-zinc-200">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"
+                  class="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-zinc-600 focus:border-accent/70 focus:ring-2 focus:ring-accent/10">
+              </div>
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="project-type" class="mb-2 block text-sm font-medium text-zinc-200">Project type</label>
+                <select id="project-type" name="project-type" required
+                  class="form-select w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 text-sm text-white outline-none focus:border-accent/70 focus:ring-2 focus:ring-accent/10">
+                  <option value="" disabled selected>Select a project type</option>
+                  <option>Website</option>
+                  <option>Web Application</option>
+                  <option>Mobile App</option>
+                  <option>Backend / API</option>
+                  <option>AI-Powered Feature</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="budget" class="mb-2 block text-sm font-medium text-zinc-200">Budget range <span
+                    class="font-normal text-zinc-500">(optional)</span></label>
+                <select id="budget" name="budget"
+                  class="form-select w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 text-sm text-white outline-none focus:border-accent/70 focus:ring-2 focus:ring-accent/10">
+                  <option value="" selected>Not sure yet</option>
+                  <option>Under $500</option>
+                  <option>$500 – $1,500</option>
+                  <option>$1,500 – $5,000</option>
+                  <option>$5,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="subject" class="mb-2 block text-sm font-medium text-zinc-200">Subject</label>
+              <input id="subject" name="subject" type="text" required placeholder="What can I help you with?"
+                class="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-zinc-600 focus:border-accent/70 focus:ring-2 focus:ring-accent/10">
+            </div>
+
+            <div>
+              <label for="message" class="mb-2 block text-sm font-medium text-zinc-200">Message</label>
+              <textarea id="message" name="message" rows="7" required
+                placeholder="Tell me a little about your project..."
+                class="w-full resize-none rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-zinc-600 focus:border-accent/70 focus:ring-2 focus:ring-accent/10"></textarea>
+            </div>
+            <div
+              class="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <p class="max-w-sm text-xs leading-5 text-zinc-500">I'll review your inquiry and get back to you using the
+                contact details provided.</p>
+              <button type="submit"
+                class="btn-shine group inline-flex w-full min-w-56 items-center justify-center gap-3 rounded-xl bg-accent/90 px-10 py-4 text-sm font-semibold text-zinc-950 shadow-lg shadow-accent/0 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-accent hover:shadow-accent/40 active:scale-95 sm:w-64 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950">
+                SEND INQUIRY
+                <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em"
+                    width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M48 270.9l118.9 44.6L181.7 464 256 360l104 104L464 48 48 270.9zm294.9 126L260 313.4 374.9 152 193.6 289.8 124.9 265l291-156.2-73 288.1z">
+                    </path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+         </form>
+       </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10">
+      <div data-reveal class="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+        <div
+          class="flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/[0.035] p-7 sm:flex-row sm:items-center sm:justify-between sm:p-9">
+          <div>
+            <p class="text-xs font-medium uppercase tracking-[0.18em] text-accent">Start the project</p>
+            <h2 class="font-display mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">Have an idea? Let's turn it
+              into something real.</h2>
+          </div>
+          <a href="#name"
+            class="inline-flex w-fit shrink-0 items-center rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-zinc-950 hover:brightness-95">
+            Start the Project <span class="ml-3" aria-hidden="true"><svg stroke="currentColor" fill="currentColor"
+                stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M48 270.9l118.9 44.6L181.7 464 256 360l104 104L464 48 48 270.9zm294.9 126L260 313.4 374.9 152 193.6 289.8 124.9 265l291-156.2-73 288.1z">
+                </path>
+              </svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer border-t border-white/10 bg-zinc-950">
+    <div class="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+      <div data-reveal class="grid gap-12 text-center lg:grid-cols-[1.4fr_0.7fr_0.9fr] lg:text-left">
+        <div class="mx-auto max-w-xl lg:mx-0">
+          <a href="index.html" class="inline-flex items-center gap-3">
+            <span
+              class="font-display flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-sm font-bold text-accent">MD</span>
+            <span class="font-display text-lg font-semibold tracking-tight">Moyin's Dev</span>
+          </a>
+          <p class="mt-5 text-sm leading-7 text-zinc-400">
+            Moyinoluwa Samuel Adekunle (Moyin's Dev) — Full Stack Software Engineer & Founder of Moyin's Devs.
+            Crafting digital experiences with code, creativity, and purpose across web, mobile, desktop, and backend
+            platforms.
+          </p>
+          <a href="contact.html"
+            class="footer-cta mt-7 inline-flex items-center rounded-xl border border-accent px-5 py-3 text-sm font-semibold text-accent hover:bg-accent hover:text-zinc-950">
+            Start the Project <span class="ml-3" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Explore</p>
+          <nav class="mt-5 space-y-3 text-sm">
+            <a href="index.html" class="footer-link block text-zinc-400 hover:text-white">Home</a>
+            <a href="about.html" class="footer-link block text-zinc-400 hover:text-white">About</a>
+            <a href="resume.html" class="footer-link block text-zinc-400 hover:text-white">Resume</a>
+            <a href="services.html" class="footer-link block text-zinc-400 hover:text-white">Services</a>
+            <a href="portfolio.html" class="footer-link block text-zinc-400 hover:text-white">Portfolio</a>
+            <a href="contact.html" class="footer-link block text-white">Contact</a>
+          </nav>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Contact</p>
+          <div class="mt-5 space-y-3 text-sm">
+            <a href="mailto:adekunlesamuel299@gmail.com"
+              class="footer-link block break-all text-zinc-400 hover:text-white">adekunlesamuel299@gmail.com</a>
+            <a href="tel:+2349012767896" class="footer-link block text-zinc-400 hover:text-white">+234 901 276 7896</a>
+            <p class="text-zinc-400">Port Harcourt, Rivers State, Nigeria</p>
+            <p class="pt-2 leading-6 text-zinc-500">Available for freelance projects and long-term collaborations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal class="mt-12 border-t border-white/10 pt-8">
+        <div class="flex flex-wrap justify-center gap-3 lg:justify-start">
+          <a href="#" aria-label="GitHub"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-github text-base" aria-hidden="true"></i><span>GitHub</span>
+          </a>
+          <a href="#" aria-label="LinkedIn"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-linkedin-in text-base" aria-hidden="true"></i><span>LinkedIn</span>
+          </a>
+          <a href="#" aria-label="Instagram"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-instagram text-base" aria-hidden="true"></i><span>Instagram</span>
+          </a>
+          <a href="#" aria-label="X"
+            class="social-pill inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white">
+            <i class="fa-brands fa-x-twitter text-base" aria-hidden="true"></i><span>X</span>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mt-9 flex flex-col gap-2 border-t border-white/10 pt-6 text-center text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:text-left">
+        <p>Design and built by Moyinoluwa Samuel Adekunle (Moyin's Dev).</p>
+        <p>© 2026 Moyin's Dev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/site.js" defer></script>
+</body>
+
+</html>

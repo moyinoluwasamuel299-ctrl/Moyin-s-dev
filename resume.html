@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="image/favicon-48.png" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="image/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+  <title>Resume | Moyin's Dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: "#d7ff63" },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<style>
+  body {
+    background: #09090b;
+  }
+
+  .page-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 900px),
+      linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+</style>
+
+<body class="bg-zinc-950 font-sans text-zinc-100 antialiased">
+  <div class="min-h-screen relative ">
+    <div class="pointer-events-none absolute inset-0 opacity-30"
+      style="background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 48px 48px;">
+    </div>
+    <div id="mouse-glow"
+      class="pointer-events-none fixed left-0 top-0 z-0 h-72 w-72 rounded-full bg-lime-300/10 blur-3xl opacity-0"
+      aria-hidden="true"></div>
+    <header data-site-header
+      class="site-header sticky top-0 z-50 border-b border-zinc-800/80 bg-zinc-950/95 backdrop-blur-md">
+      <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+        <a href="index.html" class="brand-logo font-display font-semibold tracking-tight text-lg">
+          Moyin<span class="text-accent">'s Dev</span>
+        </a>
+        <div id="scroll-progress"
+          class="absolute bottom-0 left-0 h-[2px] w-0 bg-accent transition-[width] duration-100 ease-out"></div>
+        <!-- <div id="scroll-progress"></div> -->
+        <div class="nav-links hidden md:flex items-center gap-8 text-base font-semibold text-zinc-400">
+          <a href="index.html" class="nav-link hover:text-accent transition">Home</a>
+          <a href="about.html" class="nav-link hover:text-accent transition">About</a>
+          <a href="resume.html" class="nav-link is-active text-accent">Resume</a>
+          <a href="services.html" class="nav-link hover:text-accent transition">Services</a>
+          <a href="portfolio.html" class="nav-link hover:text-accent transition">Portfolio</a>
+          <a href="contact.html" class="nav-link hover:text-accent transition">Contact</a>
+        </div>
+        <div class="md:hidden relative">
+          <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+            class="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-700 text-zinc-300 transition hover:border-accent/40 hover:text-accent">
+            <span class="sr-only">Toggle navigation menu</span>
+            <span class="flex h-4 w-5 flex-col justify-between">
+              <span class="hamburger-line line-1 block h-[1.5px] w-full rounded-full bg-current"></span>
+              <span class="hamburger-line line-2 block h-[1.5px] rounded-full bg-current"></span>
+              <span class="hamburger-line line-3 block h-[1.5px] w-full rounded-full bg-current"></span>
+            </span>
+          </button>
+          <div id="mobile-menu" data-menu-panel
+            class="fixed inset-0 z-40 flex items-start justify-center bg-black/90 backdrop-blur-lg px-4 pt-24 pb-6 sm:items-center sm:pt-4">
+            <div
+              class="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-[#0d0d0f]/95 shadow-2xl shadow-black/60 backdrop-blur-2xl">
+
+              <div class="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/10 blur-3xl">
+              </div>
+              <div class="pointer-events-none absolute right-8 top-[4.5rem] h-px w-16 bg-accent/60"></div>
+
+              <div class="relative flex items-center justify-between border-b border-white/10 px-6 py-5">
+                <span class="font-display text-lg font-bold tracking-tight">Moyin's<span
+                    class="text-accent">Dev</span></span>
+                <button type="button" data-menu-close aria-label="Close menu"
+                  class="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-zinc-300 transition hover:border-accent/50 hover:text-accent">
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+
+              <nav class="relative px-3 py-3">
+                <a href="index.html"
+                  class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                  Home
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                    class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="about.html"
+                  class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                  About
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                    class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="resume.html"
+                  class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-4 text-base font-semibold text-accent">
+                  Resume
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="services.html"
+                  class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                  Services
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                    class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="portfolio.html"
+                  class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                  Portfolio
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                    class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="contact.html"
+                  class="group flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-zinc-300 transition hover:bg-white/5 hover:text-accent">
+                  Contact
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                    class="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-80">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </nav>
+
+              <div class="relative border-t border-white/10 px-6 py-5">
+                <a href="contact.html"
+                  class="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-transparent px-5 py-3.5 text-sm font-bold uppercase tracking-[0.1em] text-white transition hover:border-accent/50 hover:text-accent">
+                  Let's Talk
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="relative z-10 max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div data-reveal class="max-w-3xl mb-14">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-accent mb-4">Resume</p>
+        <h1 class="font-display text-4xl md:text-6xl font-semibold tracking-tight">
+          My professional background.
+        </h1>
+        <p class="mt-6 text-zinc-400 text-lg leading-8">
+          A concise look at my education, professional focus, and current training.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-[1fr_320px] gap-10">
+        <div class="space-y-10">
+          <section data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="h-px w-8 bg-accent"></span>
+              <h2 class="font-display text-xl font-semibold">Professional Summary</h2>
+            </div>
+
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-7">
+              <p class="text-zinc-300 leading-8">
+                Full Stack Software Engineer and Founder of Moyin Devs, passionate about building exceptional digital
+                experiences across web, mobile, and desktop platforms. I specialize in crafting scalable applications,
+                intuitive user interfaces, and modern software solutions that bridge creativity and technology. With a
+                strong focus on clean architecture, thoughtful design systems, and AI-assisted development workflows, I
+                turn ideas into products that are built to make an impact.
+              </p>
+            </div>
+          </section>
+
+          <section data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="h-px w-8 bg-accent"></span>
+              <h2 class="font-display text-xl font-semibold">Education</h2>
+            </div>
+
+            <div class="space-y-5">
+              <article class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-7">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                  <div>
+                    <h3 class="text-xl font-semibold">Bachelor of Science in Computer Science</h3>
+                    <p class="mt-2 text-accent">Federal University Oye-Ekiti (FUOYE)</p>
+                    <p class="text-zinc-500 text-sm mt-1">Ekiti State, Nigeria</p>
+                  </div>
+                  <span class="text-sm text-zinc-500 whitespace-nowrap">2024 – Present</span>
+                </div>
+                <p class="mt-5 text-zinc-400 leading-7">
+                  Pursuing a degree in Computer Science, developing strong foundations in software development,
+                  programming, algorithms, and problem-solving. Gaining hands-on experience building web applications
+                  and exploring modern technologies.
+                </p>
+              </article>
+
+              <article class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-7">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                  <div>
+                    <h3 class="text-xl font-semibold">Senior Secondary School Certificate</h3>
+                    <p class="mt-2 text-accent">Christ International School</p>
+                    <p class="text-zinc-500 text-sm mt-1">Port Harcourt, Rivers State, Nigeria</p>
+                  </div>
+                  <span class="text-sm text-zinc-500 whitespace-nowrap">2021 – 2023</span>
+                </div>
+                <p class="mt-5 text-zinc-400 leading-7">
+                  Completed secondary education with a focus on science and technology, building a strong foundation in
+                  analytical thinking, problem-solving, and academic development.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="h-px w-8 bg-accent"></span>
+              <h2 class="font-display text-xl font-semibold">Training &amp; Certificates( <span
+                  class="animate-pulse">Ongoing</span>)</h2>
+            </div>
+
+            <article class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-7">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                <div>
+                  <h3 class="text-xl font-semibold">Full Stack Web Development</h3>
+                  <p class="mt-2 text-accent">Loctech IT Training Institute</p>
+                  <p class="text-zinc-500 text-sm mt-1">Rivers State, Nigeria</p>
+                </div>
+                <span class="text-sm text-zinc-500 whitespace-nowrap">2026 – Present</span>
+              </div>
+
+              <p class="mt-5 text-zinc-400 leading-7">
+                Professional training in full stack web development, covering modern frontend development with React,
+                backend engineering with Python and Django, database management, RESTful API development, and
+                application deployment. Developing practical skills in building scalable, responsive, and
+                production-ready web applications.
+              </p>
+            </article>
+          </section>
+        </div>
+
+        <aside class="lg:pt-12">
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-7 lg:sticky lg:top-8">
+            <p class="text-sm uppercase tracking-[0.18em] text-zinc-500">Contact</p>
+            <div class="mt-6 space-y-5">
+              <div>
+                <p class="text-xs uppercase tracking-wider text-zinc-600">Location</p>
+                <p class="mt-1 text-zinc-300">Port Harcourt, Rivers State, Nigeria</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-zinc-600">Phone</p>
+                <a href="tel:+2349012767896" class="mt-1 block text-zinc-300 hover:text-accent transition">+234
+                  9012767896</a>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-zinc-600">Email</p>
+                <a href="mailto:adekunlesamuel299@gmail.com"
+                  class="mt-1 block break-all text-zinc-300 hover:text-accent transition">adekunlesamuel299@gmail.com</a>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-zinc-600">Role</p>
+                <p class="mt-1 text-zinc-300">Founder @ Moyin Devs</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer relative z-10 border-t border-zinc-800/80 bg-zinc-950">
+      <div class="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+        <div data-reveal class="grid gap-12 text-center lg:grid-cols-[1.4fr_0.7fr_0.9fr] lg:text-left">
+          <div class="mx-auto max-w-xl lg:mx-0">
+            <a href="index.html" class="inline-flex items-center gap-3">
+              <span
+                class="font-display flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-800 bg-white/[0.06] text-sm font-bold text-accent">MD</span>
+              <span class="font-display text-lg font-semibold tracking-tight">Moyin's Dev</span>
+            </a>
+            <p class="mt-5 text-sm leading-7 text-zinc-400">
+              Moyinoluwa Samuel Adekunle (Moyin's Dev) — Full Stack Software Engineer & Founder of Moyin's Devs.
+              Crafting digital experiences with code, creativity, and purpose across web, mobile, desktop, and backend
+              platforms.
+            </p>
+            <a href="contact.html"
+              class="footer-cta mt-7 inline-flex items-center rounded-xl border border-accent px-5 py-3 text-sm font-semibold text-accent hover:bg-accent hover:text-zinc-950">
+              Start the Project <span class="ml-3" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Explore</p>
+            <nav class="mt-5 space-y-3 text-sm">
+              <a href="index.html" class="footer-link block text-zinc-400 hover:text-white">Home</a>
+              <a href="about.html" class="footer-link block text-zinc-400 hover:text-white">About</a>
+              <a href="resume.html" class="footer-link block text-white">Resume</a>
+              <a href="services.html" class="footer-link block text-zinc-400 hover:text-white">Services</a>
+              <a href="portfolio.html" class="footer-link block text-zinc-400 hover:text-white">Portfolio</a>
+              <a href="contact.html" class="footer-link block text-zinc-400 hover:text-white">Contact</a>
+            </nav>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Contact</p>
+            <div class="mt-5 space-y-3 text-sm">
+              <a href="mailto:adekunlesamuel299@gmail.com"
+                class="footer-link block break-all text-zinc-400 hover:text-white">adekunlesamuel299@gmail.com</a>
+              <a href="tel:+2349012767896" class="footer-link block text-zinc-400 hover:text-white">+234 901 276
+                7896</a>
+              <p class="text-zinc-400">Port Harcourt, Rivers State, Nigeria</p>
+              <p class="pt-2 leading-6 text-zinc-500">Available for freelance projects and long-term collaborations.</p>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal class="mt-12 border-t border-zinc-800 pt-8">
+          <div class="flex flex-wrap justify-center gap-3 lg:justify-start">
+            <a href="#" aria-label="GitHub"
+              class="social-pill inline-flex items-center gap-2.5 rounded-full border border-zinc-800 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-zinc-600 hover:bg-white/[0.06] hover:text-white">
+              <i class="fa-brands fa-github text-base" aria-hidden="true"></i><span>GitHub</span>
+            </a>
+            <a href="#" aria-label="LinkedIn"
+              class="social-pill inline-flex items-center gap-2.5 rounded-full border border-zinc-800 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-zinc-600 hover:bg-white/[0.06] hover:text-white">
+              <i class="fa-brands fa-linkedin-in text-base" aria-hidden="true"></i><span>LinkedIn</span>
+            </a>
+            <a href="#" aria-label="Instagram"
+              class="social-pill inline-flex items-center gap-2.5 rounded-full border border-zinc-800 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-zinc-600 hover:bg-white/[0.06] hover:text-white">
+              <i class="fa-brands fa-instagram text-base" aria-hidden="true"></i><span>Instagram</span>
+            </a>
+            <a href="#" aria-label="X"
+              class="social-pill inline-flex items-center gap-2.5 rounded-full border border-zinc-800 bg-white/[0.025] px-5 py-2.5 text-sm text-zinc-400 hover:border-zinc-600 hover:bg-white/[0.06] hover:text-white">
+              <i class="fa-brands fa-x-twitter text-base" aria-hidden="true"></i><span>X</span>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="mt-9 flex flex-col gap-2 border-t border-zinc-800 pt-6 text-center text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:text-left">
+          <p>Design and built by Moyinoluwa Samuel Adekunle (Moyin's Dev).</p>
+          <p>© 2026 Moyin's Dev. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/site.js" defer></script>
+</body>
+
+</html>

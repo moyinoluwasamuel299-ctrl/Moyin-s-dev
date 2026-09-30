@@ -1,0 +1,288 @@
+/* ============================================================
+   Moyin's Dev — shared nav / interaction polish
+   Include on every page:
+   <link rel="stylesheet" href="assets/site.css">
+   ============================================================ */
+
+/* ---- Header entrance ---- */
+@keyframes site-nav-fade-down {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.site-header {
+  animation: site-nav-fade-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.75);
+}
+
+/* ---- Logo ---- */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+.brand-logo:hover { transform: translateY(-1px) scale(1.02); }
+
+/* ---- Desktop nav links: staggered entrance + animated underline ---- */
+.nav-links > a {
+  position: relative;
+  opacity: 0;
+  transform: translateY(-6px);
+  animation: site-nav-link-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.nav-links > a:nth-child(1) { animation-delay: 0.08s; }
+.nav-links > a:nth-child(2) { animation-delay: 0.14s; }
+.nav-links > a:nth-child(3) { animation-delay: 0.20s; }
+.nav-links > a:nth-child(4) { animation-delay: 0.26s; }
+.nav-links > a:nth-child(5) { animation-delay: 0.32s; }
+.nav-links > a:nth-child(6) { animation-delay: 0.38s; }
+
+@keyframes site-nav-link-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -6px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.9;
+  transition: right 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  right: 0;
+}
+
+/* ---- Hamburger icon (decorative, animates into an X) ---- */
+[data-menu-toggle] {
+  transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+}
+.hamburger-line {
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.2s ease, width 0.25s ease;
+}
+[data-menu-toggle][aria-expanded="true"] .line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+[data-menu-toggle][aria-expanded="true"] .line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+[data-menu-toggle][aria-expanded="true"] .line-3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+/* Slightly shorter middle bar at rest, for a more crafted look */
+.hamburger-line.line-2 { width: 70%; align-self: flex-end; }
+[data-menu-toggle][aria-expanded="true"] .line-2 { width: 100%; }
+
+/* ---- Mobile dropdown panel ---- */
+[data-menu-panel] {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+}
+[data-menu-panel].open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+[data-menu-panel] a {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+[data-menu-panel] a:hover {
+  transform: translateX(2px);
+}
+
+/* ---- Scroll reveal (used on About, footer, and the inquiry form) ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal-delay="1"] { transition-delay: 0.08s; }
+[data-reveal-delay="2"] { transition-delay: 0.16s; }
+[data-reveal-delay="3"] { transition-delay: 0.24s; }
+[data-reveal-delay="4"] { transition-delay: 0.32s; }
+
+/* ---- Shared professional footer ---- */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 12% 0%, rgba(215, 255, 99, 0.06), transparent 55%);
+  pointer-events: none;
+}
+.footer-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.footer-link:hover {
+  transform: translateX(3px);
+}
+.social-pill {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease,
+    background-color 0.25s ease, color 0.25s ease;
+}
+.social-pill:hover {
+  transform: translateY(-2px);
+}
+.footer-cta {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.footer-cta:hover {
+  transform: translateY(-2px);
+}
+
+/* ---- Status / availability chip (About, hero) ---- */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.status-dot {
+  position: relative;
+  display: inline-flex;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background: currentColor;
+}
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.4;
+  animation: status-pulse 2s ease-out infinite;
+}
+@keyframes status-pulse {
+  0% { transform: scale(0.6); opacity: 0.45; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* ---- About page: value cards + credential list ---- */
+.value-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
+}
+.value-card:hover {
+  transform: translateY(-4px);
+}
+.credential-row {
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.credential-row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.form-field-icon {
+  transition: color 0.2s ease;
+}
+.form-input:focus ~ .form-field-icon,
+.form-select:focus + .form-field-icon {
+  color: currentColor;
+}
+.trust-chip {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+.trust-chip:hover {
+  transform: translateY(-2px);
+}
+select.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23a1a1aa' stroke-width='1.6'%3E%3Cpath d='M5 7.5l5 5 5-5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.font-display {
+  font-family: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .nav-links > a,
+  .hamburger-line,
+  [data-menu-panel],
+  [data-reveal],
+  .status-dot::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .nav-links > a { opacity: 1; transform: none; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #d7ff63; 
+  border-radius: 999px;
+  border: 1px solid #09090b; 
+  border : none;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d7ff63; 
+}
+/* #scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: #d7ff63;
+  z-index: 100;
+  transition: width 0.1s ease-out; */
+/* } */
+/* add to assets/site.css */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.btn-shine:hover::before {
+  left: 125%;
+}
