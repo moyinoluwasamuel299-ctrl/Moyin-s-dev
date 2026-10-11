@@ -144,3 +144,16 @@ document.querySelectorAll("[data-menu-panel]").forEach(function (panel) {
     }
   });
 });
+(function () {
+  var root = document.documentElement;
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (meta && root.classList.contains("light")) meta.setAttribute("content", "#f8f7f3");
+
+  document.querySelectorAll("[data-theme-toggle]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var isLight = root.classList.toggle("light");
+      try { localStorage.setItem("theme", isLight ? "light" : "dark"); } catch (e) {}
+      if (meta) meta.setAttribute("content", isLight ? "#f8f7f3" : "#09090b");
+    });
+  });
+})();

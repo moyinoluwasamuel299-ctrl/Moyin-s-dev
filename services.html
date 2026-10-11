@@ -31,6 +31,9 @@
       }
     }
   </script>
+  <script>
+  try { if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}
+</script>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 
@@ -60,6 +63,17 @@
           <a href="portfolio.html" class="nav-link hover:text-accent transition">Portfolio</a>
           <a href="contact.html" class="nav-link hover:text-accent transition">Contact</a>
         </div>
+
+         <button type="button" data-theme-toggle aria-label="Toggle light and dark mode"
+  class="ml-auto mr-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-lime transition hover:border-lime/40 md:ml-0 md:mr-0">
+  <svg class="theme-icon-sun" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+  </svg>
+  <svg class="theme-icon-moon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
         <div class="md:hidden relative">
           <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"
             aria-label="Toggle navigation menu"

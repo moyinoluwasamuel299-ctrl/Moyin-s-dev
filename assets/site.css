@@ -286,3 +286,58 @@ body {
 .btn-shine:hover::before {
   left: 125%;
 }
+/* ============ Theme toggle icons ============ */
+.theme-icon-moon { display: none; }
+html.light .theme-icon-sun { display: none; }
+html.light .theme-icon-moon { display: block; }
+
+/* ============ Light theme ============ */
+html.light { color-scheme: light; }
+html.light body { background: #f8f7f3 !important; color: #18181b; }
+
+/* page background grid */
+html.light .page-grid,
+html.light div[style*="background-image"] {
+  background-image:
+    linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px) !important;
+}
+
+/* surfaces */
+html.light .bg-zinc-950 { background-color: #f8f7f3; }
+html.light [class*=" bg-zinc-950/"], html.light [class^="bg-zinc-950/"] { background-color: rgba(248,247,243,.88); }
+html.light [class*=" bg-zinc-900"],  html.light [class^="bg-zinc-900"]  { background-color: #ffffff; }
+html.light .bg-zinc-800 { background-color: #e4e4e7; }
+html.light [class*="bg-[#0d0d0f]"] { background-color: rgba(255,255,255,.97); }
+html.light .site-footer { background-color: #efece5; }
+
+/* translucent tints (cards, pills, inputs) */
+html.light [class*=" bg-black/"], html.light [class^="bg-black/"] { background-color: rgba(0,0,0,.04); }
+html.light [class*="bg-black/90"], html.light [class*="bg-black/80"] { background-color: rgba(248,247,243,.88); }
+html.light [class*=" bg-white/"], html.light [class^="bg-white/"] { background-color: rgba(0,0,0,.035); }
+html.light [class*="bg-white/[0."] { background-color: rgba(255,255,255,.75); }
+html.light [class*="hover:bg-white/"]:hover { background-color: rgba(0,0,0,.06); }
+
+/* borders */
+html.light [class*=" border-white/"], html.light [class^="border-white/"],
+html.light [class*=" border-zinc-"],  html.light [class^="border-zinc-"] { border-color: rgba(24,24,27,.12); }
+html.light [class*="hover:border-white/"]:hover { border-color: rgba(24,24,27,.25); }
+
+/* text */
+html.light .text-white, html.light .text-zinc-100 { color: #18181b; }
+html.light .text-zinc-200 { color: #27272a; }
+html.light .text-zinc-300 { color: #3f3f46; }
+html.light .text-zinc-400 { color: #52525b; }
+html.light .text-zinc-500, html.light .text-zinc-600 { color: #71717a; }
+html.light [class*="hover:text-white"]:hover { color: #18181b; }
+html.light .group:hover [class*="group-hover:text-white"] { color: #18181b; }
+
+/* brand lime, darkened so it stays readable on a light page */
+html.light .text-lime, html.light .text-accent { color: #5c7500; }
+html.light [class*="hover:text-lime"]:hover,
+html.light [class*="hover:text-accent"]:hover,
+html.light .group:hover [class*="group-hover:text-lime"] { color: #5c7500; }
+html.light [class*="hover:text-zinc-950"]:hover { color: #09090b; }
+html.light .border-lime, html.light .border-accent { border-color: #5c7500; }
+html.light [class*=" bg-lime/10"], html.light [class^="bg-lime/10"],
+html.light [class*=" bg-accent/10"], html.light [class^="bg-accent/10"] { background-color: rgba(92,117,0,.12); }
